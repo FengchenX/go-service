@@ -1,10 +1,10 @@
 package jwt
 
 import (
+	"agfun/auth/entity"
 	"agfun/dbcentral/etcddb"
 	"agfun/dbcentral/mysqldb"
 	"agfun/util"
-	"agfun/auth/entity"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
