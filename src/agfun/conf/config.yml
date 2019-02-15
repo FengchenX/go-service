@@ -1,0 +1,2 @@
+sys_db: root:feng@tcp(localhost:3306)/agfun?charset=utf8&parseTime=true&loc=Local
+auth_db: root:feng@tcp(localhost:3306)/auth?charset=utf8&parseTime=true&loc=Local

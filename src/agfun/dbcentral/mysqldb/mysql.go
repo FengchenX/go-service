@@ -1,6 +1,7 @@
 package mysqldb
 
 import (
+	"agfun/conf"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"log"
@@ -9,7 +10,7 @@ import (
 //&parseTime=true&loc=Local
 func initSysDB() {
 	db, err := gorm.Open("mysql",
-		"root:feng@tcp(localhost:3306)/agfun?charset=utf8&parseTime=true&loc=Local")
+		conf.AgfunInst().SysDB)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,7 +37,7 @@ func GetAuthDB() *gorm.DB {
 
 func initAuthDB() {
 	db, err := gorm.Open("mysql",
-		"root:feng@tcp(localhost:3306)/auth?charset=utf8&parseTime=true&loc=Local")
+		conf.AgfunInst().AuthDB)
 	if err != nil {
 		log.Fatal(err)
 	}
