@@ -1,11 +1,11 @@
 package entity
 
 type Video struct {
-	ID   string
-	Name string
-	Pic  string
-	Desc string
-	URL  string
+	ID   string `json:"id"`
+	Name string `json:"name"`
+	Pic  string `json:"pic"`
+	Desc string `json:"desc"`
+	URL  string `json:"url"`
 }
 
 type FreeVideo struct {
