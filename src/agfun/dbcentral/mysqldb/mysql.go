@@ -2,10 +2,17 @@ package mysqldb
 
 import (
 	"agfun/conf"
+	"agfun/entity"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"log"
 )
+
+func SysCreateTable() {
+	if db := sysdb.AutoMigrate(&entity.Video{}); db.Error != nil {
+		panic(db.Error)
+	}
+}
 
 //&parseTime=true&loc=Local
 func initSysDB() {
@@ -15,6 +22,7 @@ func initSysDB() {
 		log.Fatal(err)
 	}
 	sysdb = db
+	SysCreateTable()
 }
 
 var sysdb *gorm.DB

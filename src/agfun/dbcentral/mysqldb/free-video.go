@@ -19,9 +19,9 @@ func GetFreeVideos(free entity.FreeVideo, filter *util.PageFilter) ([]*entity.Fr
 		params = append(params, free.ID)
 		comma = "AND"
 	}
-	if len(free.Name) > 0 {
-		sql = fmt.Sprintf("%s %s name = ?", sql, comma)
-		params = append(params, free.Name)
+	if len(free.VideoID) > 0 {
+		sql = fmt.Sprintf("%s %s video_id = ?", sql, comma)
+		params = append(params, free.VideoID)
 		comma = "AND"
 	}
 	var frees []*entity.FreeVideo

@@ -9,9 +9,11 @@ type Video struct {
 }
 
 type FreeVideo struct {
-	Video
+	ID      string `json:"id"`
+	VideoID string `json:"video_id"`
 }
 
 type PaidVideo struct {
-	Video
+	ID      string `json:"id"`
+	VideoID string `json:"video_id"`
 }
