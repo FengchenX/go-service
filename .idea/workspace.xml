@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9c41249-122d-41ab-94bb-af1c81b9c676" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/agfun/dbcentral/mysqldb/video.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agfun/dbcentral/mysqldb/free-video.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/agfun/dbcentral/mysqldb/free-video.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agfun/dbcentral/mysqldb/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/agfun/dbcentral/mysqldb/mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agfun/dto/dto.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/agfun/dto/dto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agfun/entity/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/agfun/entity/entity.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gopkg.in/alexcesaro/quotedprintable.v2" beforeDir="false" afterPath="$PROJECT_DIR$/src/gopkg.in/alexcesaro/quotedprintable.v2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gopkg.in/alexcesaro/quotedprintable.v2/header.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gopkg.in/alexcesaro/quotedprintable.v2/header.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gopkg.in/alexcesaro/quotedprintable.v2/header_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/gopkg.in/alexcesaro/quotedprintable.v2/header_test.go" afterDir="false" />
@@ -156,7 +150,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-46" />
+    <option name="x" value="532" />
+    <option name="y" value="57" />
     <option name="width" value="1191" />
     <option name="height" value="1047" />
   </component>
