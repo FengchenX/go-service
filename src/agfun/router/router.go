@@ -14,7 +14,7 @@ func Init() *gin.Engine {
 	config := cors.DefaultConfig()
 	config.AllowAllOrigins = true
 	config.AllowHeaders = append(config.AllowHeaders, []string{"session", "accept"}...)
-	router.Use(cors.New(config), jwt.AuthMiddleWare(mysqldb.GetAuthDB(), etcddb.GetCli()))
+	router.Use(cors.New(config), jwt.AuthMiddleWare(pg.GetAuthDB(), etcddb.GetCli()))
 
 	router.GET("/", controller.Hello)
 	initFreeVideoRouter(router)

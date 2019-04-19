@@ -1,12 +1,36 @@
-package mysqldb
+package pg
 
 import (
 	"agfun/conf"
 	"agfun/entity"
+	"agfun/log"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"log"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
+
+type DB struct {
+	*gorm.DB
+}
+
+func NewDB() *DB {
+	return &DB{}
+}
+func (db *DB) initDB(a ...interface{}) {
+	d, e := gorm.Open("postgres", conf.AgfunInst().SysDB)
+	if e != nil {
+		log.Fatal(e)
+	}
+	db.DB = d
+	db.addTable()
+}
+func (db *DB) addTable(a ...interface{}) {
+	if migrate := db.DB.AutoMigrate(a...); migrate.Error != nil {
+		log.Fatal(migrate.Error)
+	}
+}
+type SysDB struct {
+	DB
+}
 
 func SysCreateTable() {
 	if db := sysdb.AutoMigrate(&entity.Video{}); db.Error != nil {
@@ -16,7 +40,7 @@ func SysCreateTable() {
 
 //&parseTime=true&loc=Local
 func initSysDB() {
-	db, err := gorm.Open("mysql",
+	db, err := gorm.Open("postgres",
 		conf.AgfunInst().SysDB)
 	if err != nil {
 		log.Fatal(err)
@@ -44,7 +68,7 @@ func GetAuthDB() *gorm.DB {
 }
 
 func initAuthDB() {
-	db, err := gorm.Open("mysql",
+	db, err := gorm.Open("postgres",
 		conf.AgfunInst().AuthDB)
 	if err != nil {
 		log.Fatal(err)

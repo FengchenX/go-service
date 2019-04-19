@@ -8,14 +8,14 @@ import (
 
 func (s *Svc) AddFreeVideos(frees []*entity.FreeVideo) error {
 	for _, free := range frees {
-		_, i, e := mysqldb.GetFreeVideos(*free, nil)
+		_, i, e := pg.GetFreeVideos(*free, nil)
 		if e != nil {
 			return e
 		}
 		if i > 0 {
 			continue
 		}
-		e = mysqldb.AddFreeVideo(free)
+		e = pg.AddFreeVideo(free)
 		if e != nil {
 			return e
 		}

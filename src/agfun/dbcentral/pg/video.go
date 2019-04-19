@@ -1,4 +1,4 @@
-package mysqldb
+package pg
 
 import (
 	"agfun/entity"

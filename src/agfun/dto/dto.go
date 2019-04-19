@@ -11,11 +11,11 @@ type Video struct {
 }
 
 type FreeVideo struct {
-	ID      string `json:"id"`
+	ID string `json:"id"`
 	entity.Video
 }
 
 type PaidVideo struct {
-	ID      string `json:"id"`
+	ID string `json:"id"`
 	entity.Video
 }

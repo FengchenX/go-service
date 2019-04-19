@@ -98,7 +98,7 @@ func GetResourceParts(parentID string) (string, error) {
 		return "", nil
 	}
 	resource := entity.Resource{}
-	db := mysqldb.GetAuthDB().Where("id = ?", parentID).First(&resource)
+	db := pg.GetAuthDB().Where("id = ?", parentID).First(&resource)
 	if db.Error != nil {
 		return "", db.Error
 	}
@@ -121,7 +121,7 @@ func GetResourceParts(parentID string) (string, error) {
 
 func IsResources(path string) (bool, error) {
 	var resources []*entity.Resource
-	mysqldb.GetAuthDB().Where("name=?", "").Find(&resources)
+	pg.GetAuthDB().Where("name=?", "").Find(&resources)
 	b, e := IsResursIncludePath(resources, path)
 	return b, e
 }

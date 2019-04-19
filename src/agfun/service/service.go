@@ -3,6 +3,7 @@ package service
 import (
 	"agfun/dbcentral/etcddb"
 	"agfun/dbcentral/mysqldb"
+	"agfun/dbcentral/pg"
 	"github.com/jinzhu/gorm"
 )
 
@@ -23,7 +24,7 @@ func NewSvc(dynamic *etcddb.Client, sys, auth *gorm.DB) *Svc {
 var std *Svc
 
 func initStd() {
-	std = NewSvc(etcddb.GetCli(), mysqldb.GetSysDB(), mysqldb.GetAuthDB())
+	std = NewSvc(etcddb.GetCli(), pg.GetSysDB(), pg.GetAuthDB())
 }
 func GetDefaultSvc() *Svc {
 	if std == nil {
