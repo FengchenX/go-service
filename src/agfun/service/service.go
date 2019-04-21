@@ -1,34 +1,27 @@
 package service
 
 import (
-	"agfun/dbcentral/etcddb"
-	"agfun/dbcentral/mysqldb"
-	"agfun/dbcentral/pg"
-	"github.com/jinzhu/gorm"
+	"agfun/db/etcd"
+	"agfun/db/pg"
+	"github.com/kataras/iris"
 )
 
 type Svc struct {
-	Dynamic *etcddb.Client
-	SysDB   *gorm.DB
-	AuthDB  *gorm.DB
+	iris.Application
+	Dynamic *etcd.Client
+	SysDB   *pg.SysDB
+	AuthDB  *pg.AuthDB
 }
 
-func NewSvc(dynamic *etcddb.Client, sys, auth *gorm.DB) *Svc {
-	return &Svc{
-		Dynamic: dynamic,
-		SysDB:   sys,
-		AuthDB:  auth,
-	}
+func NewSvc() *Svc {
+	return &Svc{}
 }
 
-var std *Svc
-
-func initStd() {
-	std = NewSvc(etcddb.GetCli(), pg.GetSysDB(), pg.GetAuthDB())
-}
-func GetDefaultSvc() *Svc {
-	if std == nil {
-		initStd()
-	}
-	return std
+func DefaultSvc() *Svc{
+	svc:=NewSvc()
+	svc.Application = *iris.Default()
+	svc.AuthDB = pg.DefaultAuthDB()
+	svc.SysDB = pg.DefaultSysDB()
+	//svc.Dynamic =
+	return svc
 }

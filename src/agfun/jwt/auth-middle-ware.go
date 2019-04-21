@@ -2,8 +2,8 @@ package jwt
 
 import (
 	"agfun/auth/entity"
-	"agfun/dbcentral/etcddb"
-	"agfun/dbcentral/mysqldb"
+	"agfun/db/etcd"
+	"agfun/db/mysqldb"
 	"agfun/util"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-func AuthMiddleWare(authDB *gorm.DB, cli *etcddb.Client) gin.HandlerFunc {
+func AuthMiddleWare(authDB *gorm.DB, cli *etcd.Client) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		// 开关
 		if true {
