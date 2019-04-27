@@ -1,8 +1,8 @@
 package service
 
 import (
-	"agfun/db/etcd"
-	"agfun/db/pg"
+	"db/etcd"
+	"db/pg"
 	"github.com/kataras/iris"
 )
 

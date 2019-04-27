@@ -1,8 +1,8 @@
 package pg
 
 import (
-	"agfun/conf"
-	"agfun/log"
+	"conf"
+	"log"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )

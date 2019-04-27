@@ -1,6 +1,6 @@
 package dto
 
-import "agfun/util"
+import "util"
 
 type GetVideos struct {
 	Token  string

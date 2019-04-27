@@ -1,6 +1,6 @@
 package dto
 
-import "agfun/entity"
+import "entity"
 
 type Video struct {
 	ID   string `json:"id"`
