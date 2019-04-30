@@ -9,7 +9,7 @@ import (
 
 type Svc struct {
 	iris.Application
-	Route   *router.Router
+	Router  *router.Router
 	Dynamic *etcd.Client
 	SysDB   *pg.SysDB
 	AuthDB  *pg.AuthDB
@@ -25,6 +25,6 @@ func DefaultSvc() *Svc {
 	svc.AuthDB = pg.DefaultAuthDB()
 	svc.SysDB = pg.DefaultSysDB()
 	svc.Dynamic = etcd.DefaultCli()
-	svc.Route = router.NewRouter(&svc.Application)
+	svc.Router = router.NewRouter(&svc.Application)
 	return svc
 }
