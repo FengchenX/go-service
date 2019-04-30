@@ -1,2 +1,6 @@
 sys_db: host=192.168.1.245:5432 user=postgres dbname=agfun sslmode=disable password=123456
 auth_db: host=192.168.1.245:5432 user=postgres dbname=auth sslmode=disable password=123456
+etcd:
+  - localhost:2379
+  - localhost:22379
+  - localhost:32379

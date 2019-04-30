@@ -1,10 +1,12 @@
 package etcd
 
 import (
+	"conf"
 	"context"
 	"encoding/json"
 	"fmt"
 	"github.com/coreos/etcd/clientv3"
+	"log"
 	"time"
 )
 
@@ -47,28 +49,17 @@ func (cli Client) Get(key string, value interface{}, opts ...clientv3.OpOption) 
 		return e
 
 	}
-
 	return nil
 }
 
-func GetCli() *Client {
-	if cli == nil {
-		initCli()
-	}
-	return cli
-}
-
-var cli *Client
-
-func initCli() {
+func DefaultCli() *Client {
 	client, e := clientv3.New(clientv3.Config{
-		Endpoints:   []string{"localhost:2379", "localhost:22379", "localhost:32379"},
+		Endpoints:   conf.AgfunInst().Etcd,
 		DialTimeout: 5 * time.Second,
 	})
 	if e != nil {
-		fmt.Println("connect failed, err:", e)
-		return
+		log.Fatal(e)
 	}
 	fmt.Println("connect succ")
-	cli = NewCli(client)
+	return NewCli(client)
 }

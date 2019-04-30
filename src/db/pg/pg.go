@@ -2,9 +2,9 @@ package pg
 
 import (
 	"conf"
-	"log"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"log"
 )
 
 type DB struct {
@@ -23,26 +23,28 @@ func (db *DB) ConnectDB(addr string) {
 	db.LogMode(true)
 }
 
-
 type SysDB struct {
 	DB
 }
+
 func NewSysDB() *SysDB {
 	return &SysDB{}
 }
 func DefaultSysDB() *SysDB {
-	sys:=NewSysDB()
+	sys := NewSysDB()
 	sys.ConnectDB(conf.AgfunInst().SysDB)
 	return sys
 }
+
 type AuthDB struct {
 	DB
 }
+
 func NewAuthDB() *AuthDB {
 	return &AuthDB{}
 }
-func DefaultAuthDB() *AuthDB{
-	auth:=NewAuthDB()
+func DefaultAuthDB() *AuthDB {
+	auth := NewAuthDB()
 	auth.ConnectDB(conf.AgfunInst().AuthDB)
 	return auth
 }

@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
-	"util"
 	"github.com/lestrrat/go-file-rotatelogs"
 	"github.com/pkg/errors"
 	"github.com/rifflock/lfshook"
 	"github.com/sirupsen/logrus"
+	"util"
 )
 
 func init() {
