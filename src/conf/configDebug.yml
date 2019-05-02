@@ -1,0 +1,4 @@
+sys_db: host=192.168.1.245 port=31495 user=postgres dbname=agfun sslmode=disable password=otitan123
+auth_db: host=192.168.1.245 port=31495 user=postgres dbname=auth sslmode=disable password=otitan123
+etcd:
+  - 192.168.1.245:31805

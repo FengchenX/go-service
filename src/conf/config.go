@@ -17,7 +17,7 @@ var conf *AgfunConf
 
 func AgfunInst() *AgfunConf {
 	if conf == nil {
-		data, _ := ioutil.ReadFile("C:/Users/TITAN/Desktop/workspace/go-service/src/conf/config.yml")
+		data, _ := ioutil.ReadFile("C:/Users/fengc/Desktop/workspace/go-service/src/conf/configDebug.yml")
 		fmt.Println(string(data))
 		t := AgfunConf{}
 		//把yaml形式的字符串解析成struct类型
