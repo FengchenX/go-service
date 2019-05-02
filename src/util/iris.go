@@ -12,7 +12,7 @@ func Success(c iris.Context, data interface{}) {
 func Fail(c iris.Context, err error) {
 	c.JSON(iris.Map{
 		"Code": -1,
-		"Msg":  "fail",
-		"Data": err,
+		"Msg":  err.Error(),
+		"Data": nil,
 	})
 }
