@@ -1,6 +1,7 @@
 package service
 
 import (
+	"github.com/iris-contrib/middleware/cors"
 	"github.com/kataras/iris"
 	"router"
 )
@@ -18,7 +19,8 @@ func DefaultSvc() *Svc {
 	svc := NewSvc()
 	svc.Application = *iris.Default()
 
-	svc.Use()
+	svc.Use(cors.AllowAll())
+
 	svc.Router = router.NewRouter(&svc.Application)
 	return svc
 }
