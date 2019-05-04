@@ -2,7 +2,6 @@ package pg
 
 import (
 	"conf"
-	"entity"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"log"
@@ -34,11 +33,6 @@ func NewSysDB() *SysDB {
 func DefaultSysDB() *SysDB {
 	sys := NewSysDB()
 	sys.ConnectDB(conf.AgfunInst().SysDB)
-
-
-	if migrate := sys.AutoMigrate(entity.Video{}); migrate.Error != nil {
-		log.Fatal(migrate.Error)
-	}
 	return sys
 }
 
