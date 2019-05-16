@@ -8,9 +8,12 @@ import (
 )
 
 type AgfunConf struct {
-	SysDB  string   `yaml:"sys_db"`
-	AuthDB string   `yaml:"auth_db"`
-	Etcd   []string `yaml:"etcd"`
+	SysDB     string   `yaml:"sys_db"`
+	AuthDB    string   `yaml:"auth_db"`
+	Etcd      []string `yaml:"etcd"`
+	VideoHost string   `yaml:"video_host"`
+	FileHost  string   `yaml:"file_host"`
+	MovieHost string   `yaml:"movie_host"`
 }
 
 var conf *AgfunConf
